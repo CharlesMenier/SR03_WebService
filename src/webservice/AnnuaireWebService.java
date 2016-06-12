@@ -45,6 +45,10 @@ public class AnnuaireWebService {
 		return AnnounceDao.findByCategory(categoryId);
 	}
 	
+	public String searchByCategoryName(String categoryName) {
+		return AnnounceDao.findByCategory(categoryName);
+	}
+	
 	public String searchByAdress(String ville, String rue, String codepostal)
 	{
 		return AnnounceDao.findByAdress(ville, rue, codepostal);

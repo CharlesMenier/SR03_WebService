@@ -3,7 +3,7 @@
   <ns1:parameter name="sendMultiRefs" value="true"/>
   <ns1:parameter name="disablePrettyXML" value="true"/>
   <ns1:parameter name="adminPassword" value="admin"/>
-  <ns1:parameter name="attachments.Directory" value="C:\Users\Charlie\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Projet3\WEB-INF\attachments"/>
+  <ns1:parameter name="attachments.Directory" value="G:\Apache Tomcat\apache-tomcat-8.0.33\wtpwebapps\SR03Server\WEB-INF\attachments"/>
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
@@ -33,27 +33,27 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="AnnuaireWebService" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="insertCategory" qname="ns1:insertCategory" soapAction="" xmlns:ns1="http://webservice" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns2:operation>
-  <ns1:operation name="getCategories" qname="ns2:getCategories" returnQName="ns2:getCategoriesReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="searchByName" qname="ns3:searchByName" returnQName="ns3:searchByNameReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:name" type="xsd:string"/>
+  <ns2:operation name="getCategories" qname="ns1:getCategories" returnQName="ns1:getCategoriesReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:operation name="updateCategory" qname="ns2:updateCategory" soapAction="" xmlns:ns2="http://webservice">
+   <ns1:parameter qname="ns2:id" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="searchByCategory" qname="ns4:searchByCategory" returnQName="ns4:searchByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns4:categoryId" type="xsd:int"/>
+  <ns1:operation name="deleteCategory" qname="ns3:deleteCategory" soapAction="" xmlns:ns3="http://webservice">
+   <ns1:parameter qname="ns3:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="insertCategory" qname="ns4:insertCategory" soapAction="" xmlns:ns4="http://webservice">
+   <ns1:parameter qname="ns4:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:operation name="searchByAdress" qname="ns5:searchByAdress" returnQName="ns5:searchByAdressReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns5:ville" type="xsd:string"/>
    <ns1:parameter qname="ns5:rue" type="xsd:string"/>
    <ns1:parameter qname="ns5:codepostal" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="updateCategory" qname="ns6:updateCategory" soapAction="" xmlns:ns6="http://webservice">
-   <ns1:parameter qname="ns6:id" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns6:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="searchByName" qname="ns6:searchByName" returnQName="ns6:searchByNameReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:name" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="deleteCategory" qname="ns7:deleteCategory" soapAction="" xmlns:ns7="http://webservice">
-   <ns1:parameter qname="ns7:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="searchByCategory" qname="ns7:searchByCategory" returnQName="ns7:searchByCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:categoryId" type="xsd:int"/>
   </ns1:operation>
   <ns1:operation name="insertAnnounceAndNewAdress" qname="ns8:insertAnnounceAndNewAdress" soapAction="" xmlns:ns8="http://webservice">
    <ns1:parameter qname="ns8:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
@@ -69,7 +69,10 @@
    <ns1:parameter qname="ns9:adressId" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns9:phone" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="getCategories searchByName insertCategory searchByCategory updateCategory insertAnnounceWithExistingAdress insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
+  <ns1:operation name="searchByCategoryName" qname="ns10:searchByCategoryName" returnQName="ns10:searchByCategoryNameReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://webservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:categoryName" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getCategories searchByName updateCategory insertCategory searchByCategory insertAnnounceWithExistingAdress searchByCategoryName insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="AnnuaireWebService"/>
   <ns1:parameter name="className" value="webservice.AnnuaireWebService"/>

@@ -20,21 +20,7 @@
       <parameter name="className" value="webservice.AnnuaireWebServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="AnnuaireWebService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="insertCategory" qname="operNS:insertCategory" xmlns:operNS="http://webservice" soapAction="" >
-        <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
       <operation name="getCategories" qname="operNS:getCategories" xmlns:operNS="http://webservice" returnQName="retNS:getCategoriesReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-      </operation>
-      <operation name="searchByName" qname="operNS:searchByName" xmlns:operNS="http://webservice" returnQName="retNS:searchByNameReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="searchByCategory" qname="operNS:searchByCategory" xmlns:operNS="http://webservice" returnQName="retNS:searchByCategoryReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:categoryId" xmlns:pns="http://webservice" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="searchByAdress" qname="operNS:searchByAdress" xmlns:operNS="http://webservice" returnQName="retNS:searchByAdressReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:ville" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:rue" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:codepostal" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="updateCategory" qname="operNS:updateCategory" xmlns:operNS="http://webservice" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -42,6 +28,20 @@
       </operation>
       <operation name="deleteCategory" qname="operNS:deleteCategory" xmlns:operNS="http://webservice" soapAction="" >
         <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="insertCategory" qname="operNS:insertCategory" xmlns:operNS="http://webservice" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByAdress" qname="operNS:searchByAdress" xmlns:operNS="http://webservice" returnQName="retNS:searchByAdressReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ville" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:rue" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:codepostal" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByName" qname="operNS:searchByName" xmlns:operNS="http://webservice" returnQName="retNS:searchByNameReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="searchByCategory" qname="operNS:searchByCategory" xmlns:operNS="http://webservice" returnQName="retNS:searchByCategoryReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:categoryId" xmlns:pns="http://webservice" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="insertAnnounceAndNewAdress" qname="operNS:insertAnnounceAndNewAdress" xmlns:operNS="http://webservice" soapAction="" >
         <parameter qname="pns:name" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -57,7 +57,10 @@
         <parameter qname="pns:adressId" xmlns:pns="http://webservice" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:phone" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="getCategories searchByName insertCategory searchByCategory updateCategory insertAnnounceWithExistingAdress insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
+      <operation name="searchByCategoryName" qname="operNS:searchByCategoryName" xmlns:operNS="http://webservice" returnQName="retNS:searchByCategoryNameReturn" xmlns:retNS="http://webservice" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:categoryName" xmlns:pns="http://webservice" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getCategories searchByName updateCategory insertCategory searchByCategory insertAnnounceWithExistingAdress searchByCategoryName insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
 
   </service>
 </deployment>

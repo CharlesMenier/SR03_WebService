@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -132,6 +133,33 @@ public class CategoryDao {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 			return "{}";
+		}
+	}
+	
+	public static ArrayList<CategoryDao> findAll(String categoryName)
+	{
+		Connection cn 	= new DaoConnector().getConnection();
+		ArrayList<CategoryDao> categories = new ArrayList<CategoryDao>();
+		
+		try {
+			Statement stmt 	= (Statement) cn.createStatement();
+			String sql 		= "SELECT * FROM category WHERE ctg_name='" + categoryName + "'";
+			ResultSet res 	= stmt.executeQuery(sql);
+			
+			while(res.next())
+			{
+				categories.add(new CategoryDao(res.getInt("ctg_id"), res.getString("ctg_name")));
+			}
+			cn.close();
+			
+			
+			return categories;
+		
+		} 
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			return categories;
 		}
 	}
 

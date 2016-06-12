@@ -10,6 +10,8 @@ import java.util.List;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+
 public class AnnounceDao {
 
 	int id;
@@ -180,6 +182,42 @@ public class AnnounceDao {
 		try {
 			Statement stmt 	= (Statement) cn.createStatement();
 			String sql 		= "SELECT * FROM announce WHERE anc_categoryId = " + categoryId;
+			ResultSet res 	= stmt.executeQuery(sql);
+			
+			while(res.next())
+			{
+				announces.add(new AnnounceDao(res.getString("anc_name"),
+						res.getInt("anc_categoryId"),
+						res.getInt("anc_adressId"),
+						res.getString("anc_phone")));
+			}
+			cn.close();
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			return mapper.writeValueAsString(announces);
+		
+		} 
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			return "{}";
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return "{}";
+		}
+	}
+	
+	public static String findByCategory(String categoryName)
+	{
+		Connection cn 	= new DaoConnector().getConnection();
+		List<AnnounceDao> announces = new ArrayList<AnnounceDao>();
+		
+		try {
+			Statement stmt 	= (Statement) cn.createStatement();
+			String sql 		= "SELECT * FROM announce WHERE anc_categoryId IN "
+					+ "(SELECT ctg_id FROM category WHERE ctg_name='" + 
+					categoryName + "')";
 			ResultSet res 	= stmt.executeQuery(sql);
 			
 			while(res.next())

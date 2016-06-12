@@ -10,21 +10,7 @@
       <parameter name="className" value="webservice.AnnuaireWebService"/>
       <parameter name="wsdlPortType" value="AnnuaireWebService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://webservice" name="insertCategory" qname="operNS:insertCategory" soapAction="">
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
-      </operation>
       <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCategories" qname="operNS:getCategories" returnQName="retNS:getCategoriesReturn" returnType="rtns:string" soapAction="">
-      </operation>
-      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByName" qname="operNS:searchByName" returnQName="retNS:searchByNameReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByCategory" qname="operNS:searchByCategory" returnQName="retNS:searchByCategoryReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categoryId" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByAdress" qname="operNS:searchByAdress" returnQName="retNS:searchByAdressReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ville" type="tns:string"/>
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:rue" type="tns:string"/>
-        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:codepostal" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://webservice" name="updateCategory" qname="operNS:updateCategory" soapAction="">
         <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
@@ -32,6 +18,20 @@
       </operation>
       <operation xmlns:operNS="http://webservice" name="deleteCategory" qname="operNS:deleteCategory" soapAction="">
         <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice" name="insertCategory" qname="operNS:insertCategory" soapAction="">
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByAdress" qname="operNS:searchByAdress" returnQName="retNS:searchByAdressReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ville" type="tns:string"/>
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:rue" type="tns:string"/>
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:codepostal" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByName" qname="operNS:searchByName" returnQName="retNS:searchByNameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByCategory" qname="operNS:searchByCategory" returnQName="retNS:searchByCategoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categoryId" type="tns:int"/>
       </operation>
       <operation xmlns:operNS="http://webservice" name="insertAnnounceAndNewAdress" qname="operNS:insertAnnounceAndNewAdress" soapAction="">
         <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
@@ -47,7 +47,10 @@
         <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:adressId" type="tns:int"/>
         <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:phone" type="tns:string"/>
       </operation>
-      <parameter name="allowedMethods" value="getCategories searchByName insertCategory searchByCategory updateCategory insertAnnounceWithExistingAdress insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
+      <operation xmlns:operNS="http://webservice" xmlns:retNS="http://webservice" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchByCategoryName" qname="operNS:searchByCategoryName" returnQName="retNS:searchByCategoryNameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:categoryName" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getCategories searchByName updateCategory insertCategory searchByCategory insertAnnounceWithExistingAdress searchByCategoryName insertAnnounceAndNewAdress searchByAdress deleteCategory"/>
 
   </service>
 </deployment>
