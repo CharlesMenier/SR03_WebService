@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservice" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice" xmlns:intf="http://webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertCategory">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertCategoryResponse">
+    <complexType/>
+   </element>
+   <element name="getCategories">
+    <complexType/>
+   </element>
+   <element name="getCategoriesResponse">
+    <complexType>
+     <sequence>
+      <element name="getCategoriesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCategory">
+    <complexType>
+     <sequence>
+      <element name="categoryId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByCategoryResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByCategoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByAdress">
+    <complexType>
+     <sequence>
+      <element name="ville" type="xsd:string"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="codepostal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchByAdressResponse">
+    <complexType>
+     <sequence>
+      <element name="searchByAdressReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCategory">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCategoryResponse">
+    <complexType/>
+   </element>
+   <element name="deleteCategory">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCategoryResponse">
+    <complexType/>
+   </element>
+   <element name="insertAnnounceAndNewAdress">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="categId" type="xsd:int"/>
+      <element name="rue" type="xsd:string"/>
+      <element name="ville" type="xsd:string"/>
+      <element name="cp" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAnnounceAndNewAdressResponse">
+    <complexType/>
+   </element>
+   <element name="insertAnnounceWithExistingAdress">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="categId" type="xsd:int"/>
+      <element name="adressId" type="xsd:int"/>
+      <element name="phone" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAnnounceWithExistingAdressResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteCategoryRequest">
+
+      <wsdl:part element="impl:deleteCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAnnounceAndNewAdressRequest">
+
+      <wsdl:part element="impl:insertAnnounceAndNewAdress" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameRequest">
+
+      <wsdl:part element="impl:searchByName" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoriesRequest">
+
+      <wsdl:part element="impl:getCategories" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAnnounceWithExistingAdressResponse">
+
+      <wsdl:part element="impl:insertAnnounceWithExistingAdressResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertCategoryResponse">
+
+      <wsdl:part element="impl:insertCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertCategoryRequest">
+
+      <wsdl:part element="impl:insertCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByAdressResponse">
+
+      <wsdl:part element="impl:searchByAdressResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAnnounceWithExistingAdressRequest">
+
+      <wsdl:part element="impl:insertAnnounceWithExistingAdress" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCategoryRequest">
+
+      <wsdl:part element="impl:updateCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByAdressRequest">
+
+      <wsdl:part element="impl:searchByAdress" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByNameResponse">
+
+      <wsdl:part element="impl:searchByNameResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoriesResponse">
+
+      <wsdl:part element="impl:getCategoriesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategoryResponse">
+
+      <wsdl:part element="impl:searchByCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCategoryResponse">
+
+      <wsdl:part element="impl:updateCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCategoryResponse">
+
+      <wsdl:part element="impl:deleteCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAnnounceAndNewAdressResponse">
+
+      <wsdl:part element="impl:insertAnnounceAndNewAdressResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchByCategoryRequest">
+
+      <wsdl:part element="impl:searchByCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AnnuaireWebService">
+
+      <wsdl:operation name="insertCategory">
+
+         <wsdl:input message="impl:insertCategoryRequest" name="insertCategoryRequest"/>
+
+         <wsdl:output message="impl:insertCategoryResponse" name="insertCategoryResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategories">
+
+         <wsdl:input message="impl:getCategoriesRequest" name="getCategoriesRequest"/>
+
+         <wsdl:output message="impl:getCategoriesResponse" name="getCategoriesResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdl:input message="impl:searchByNameRequest" name="searchByNameRequest"/>
+
+         <wsdl:output message="impl:searchByNameResponse" name="searchByNameResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategory">
+
+         <wsdl:input message="impl:searchByCategoryRequest" name="searchByCategoryRequest"/>
+
+         <wsdl:output message="impl:searchByCategoryResponse" name="searchByCategoryResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByAdress">
+
+         <wsdl:input message="impl:searchByAdressRequest" name="searchByAdressRequest"/>
+
+         <wsdl:output message="impl:searchByAdressResponse" name="searchByAdressResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCategory">
+
+         <wsdl:input message="impl:updateCategoryRequest" name="updateCategoryRequest"/>
+
+         <wsdl:output message="impl:updateCategoryResponse" name="updateCategoryResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategory">
+
+         <wsdl:input message="impl:deleteCategoryRequest" name="deleteCategoryRequest"/>
+
+         <wsdl:output message="impl:deleteCategoryResponse" name="deleteCategoryResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAnnounceAndNewAdress">
+
+         <wsdl:input message="impl:insertAnnounceAndNewAdressRequest" name="insertAnnounceAndNewAdressRequest"/>
+
+         <wsdl:output message="impl:insertAnnounceAndNewAdressResponse" name="insertAnnounceAndNewAdressResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAnnounceWithExistingAdress">
+
+         <wsdl:input message="impl:insertAnnounceWithExistingAdressRequest" name="insertAnnounceWithExistingAdressRequest"/>
+
+         <wsdl:output message="impl:insertAnnounceWithExistingAdressResponse" name="insertAnnounceWithExistingAdressResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AnnuaireWebServiceSoapBinding" type="impl:AnnuaireWebService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchByAdress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchByAdressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchByAdressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAnnounceAndNewAdress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertAnnounceAndNewAdressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertAnnounceAndNewAdressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAnnounceWithExistingAdress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertAnnounceWithExistingAdressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertAnnounceWithExistingAdressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AnnuaireWebServiceService">
+
+      <wsdl:port binding="impl:AnnuaireWebServiceSoapBinding" name="AnnuaireWebService">
+
+         <wsdlsoap:address location="http://localhost:8080/Projet3/services/AnnuaireWebService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
