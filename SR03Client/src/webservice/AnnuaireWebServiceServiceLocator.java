@@ -22,7 +22,7 @@ public class AnnuaireWebServiceServiceLocator extends org.apache.axis.client.Ser
     }
 
     // Use to get a proxy class for AnnuaireWebService
-    private java.lang.String AnnuaireWebService_address = "http://localhost:8080/SR03Server/services/AnnuaireWebService";
+    private java.lang.String AnnuaireWebService_address = "http://localhost:8080/SR03Serveur/services/AnnuaireWebService";
 
     public java.lang.String getAnnuaireWebServiceAddress() {
         return AnnuaireWebService_address;

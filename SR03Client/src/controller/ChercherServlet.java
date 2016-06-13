@@ -48,6 +48,7 @@ public class ChercherServlet extends HttpServlet {
 		String url = request.getRequestURI();
 		if (url.contains("nom")) {
 			String name = request.getParameter("annonce_nom");
+			System.out.println("23132456666666666666666");
 			String annonceJson = annuaireWebServiceProxy.searchByName(name);
 			handleJSON(annonceJson, request, response);
 //			handleJSON("", request, response);
@@ -109,6 +110,11 @@ public class ChercherServlet extends HttpServlet {
 			for (String s : annonce.keySet()) {
 				System.out.println(annonce.get(s));
 			}
+		}
+		if(jsonArray.length() == 0) {
+			request.setAttribute("error", "No announce found");
+		} else {
+			request.setAttribute("error", "");
 		}
 		request.setAttribute("pageNum", ((jsonArray.length()-1)/5)+1);
 		request.setAttribute("annonces", annonces);
